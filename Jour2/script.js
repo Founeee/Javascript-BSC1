@@ -87,7 +87,6 @@ class Person {
 
 let personne1 = new Person("Evrad", 19);
 console.log(personne1.introduction());
-*/
 
 class Animal {
   constructor(name) {
@@ -119,3 +118,35 @@ console.log(chien.makeSound());
 console.log(chien.getName());
 chien.setName("Mike");
 console.log(chien.getName());
+*/
+
+class Shape {
+  getSurface() {}
+}
+
+class Circle extends Shape {
+  constructor(r) {
+    super();
+    this.rayon = r;
+  }
+
+  getSurface() {
+    return Math.PI * this.rayon ** 2;
+  }
+}
+
+class Square extends Shape {
+  constructor(l) {
+    super();
+    this.longueur = l;
+  }
+
+  getSurface() {
+    return this.longueur ** 2;
+  }
+}
+
+let carre = new Square(4);
+let cercle = new Circle(2.14);
+
+console.log(carre.getSurface(), cercle.getSurface());
