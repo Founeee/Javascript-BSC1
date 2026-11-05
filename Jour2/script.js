@@ -118,7 +118,6 @@ console.log(chien.makeSound());
 console.log(chien.getName());
 chien.setName("Mike");
 console.log(chien.getName());
-*/
 
 class Shape {
   getSurface() {}
@@ -150,3 +149,66 @@ let carre = new Square(4);
 let cercle = new Circle(2.14);
 
 console.log(carre.getSurface(), cercle.getSurface());
+*/
+
+//Exercice 1
+class Vehicule {
+  constructor(marque, modele) {
+    this.marque = marque;
+    this.modele = modele;
+    this._vitesse = 0;
+  }
+
+  getVitesse() {
+    return this._vitesse;
+  }
+
+  setVitesse(nouvelleVitesse) {
+    nouvelleVitesse < 0
+      ? console.error("Vitesse pas négative")
+      : (this._vitesse = nouvelleVitesse);
+  }
+
+  klaxonner() {
+    console.log("Pouet Pouet !");
+  }
+
+  afficherDetails() {
+    console.log(this.marque, this.modele, this._vitesse);
+  }
+}
+
+class Voiture extends Vehicule {
+  constructor(marque, modele, nbPortes) {
+    super(marque, modele);
+    this.nbPortes = nbPortes;
+  }
+
+  klaxonner() {
+    console.log("Tut tut!");
+  }
+}
+
+class Moto extends Vehicule {
+  constructor(marque, modele, aUnSideCar) {
+    super(marque, modele);
+    this.aUnSideCar = aUnSideCar;
+  }
+
+  klaxonner() {
+    console.log("bip bip!");
+  }
+}
+
+let voiture = new Voiture("Toyota", "Yarris", 5);
+let moto = new Moto("Yamaha", "MT07", false);
+voiture.setVitesse(50);
+moto.setVitesse(-60);
+
+const tab = [voiture, moto];
+
+tab.forEach((vehicule) => {
+  vehicule.klaxonner();
+  vehicule.afficherDetails();
+  console.log(vehicule.getVitesse());
+});
