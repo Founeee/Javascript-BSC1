@@ -1,9 +1,10 @@
+/*
+
 // Moodle Exercice 1
 let fruit = ["pomme", "banane", "orange"];
 fruit.push("mangue");
 fruit[1] = "fraise";
 
-/*
 //Moodle exercice 2
 fruit.forEach((element) => {
   console.log(element);
@@ -71,6 +72,7 @@ console.log(supinfoModule.afficherMoyenne());
 */
 //
 
+/*
 // TP 4
 //Exercie 1
 class Person {
@@ -85,3 +87,35 @@ class Person {
 
 let personne1 = new Person("Evrad", 19);
 console.log(personne1.introduction());
+*/
+
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  getName() {
+    return this.name;
+  }
+
+  setName(newName) {
+    this.name = newName;
+  }
+
+  makeSound() {}
+}
+
+class Dog extends Animal {
+  constructor(name) {
+    super(name);
+  }
+  makeSound() {
+    return "bark !";
+  }
+}
+
+let chien = new Dog("Rex");
+console.log(chien.makeSound());
+console.log(chien.getName());
+chien.setName("Mike");
+console.log(chien.getName());
