@@ -7,7 +7,6 @@ let body = document.body;
 monButton.addEventListener("click", () => {
   body.classList.toggle("theme");
 });
-*/
 
 // Exercice
 const products = [
@@ -37,3 +36,30 @@ function renderProducts(list) {
 }
 
 renderProducts(products);
+
+*/
+// Exercice
+
+let input = document.getElementById("taskInput"),
+  monButton = document.getElementById("monButton"),
+  monFormulaire = document.querySelector("form"),
+  ul = document.createElement("ul"),
+  body = document.body;
+
+ul.id = "tasklist";
+
+monFormulaire.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let li = document.createElement("li");
+  let supprimer = document.createElement("button");
+  supprimer.textContent = "Supprimer";
+  li.textContent = input.value;
+  body.appendChild(ul);
+  ul.appendChild(li);
+  li.appendChild(supprimer);
+  input.value = "";
+
+  supprimer.addEventListener("click", () => {
+    ul.removeChild(li);
+  });
+});
