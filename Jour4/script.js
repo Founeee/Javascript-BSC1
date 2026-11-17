@@ -10,7 +10,6 @@ const mou = setInterval(() => {
     clearInterval(mou);
   }
 }, 1000);
-*/
 // Exercice 2
 let maPromesse = function verifierConnexion(estConnecte) {
   let promesse = new Promise((resolve, reject) => {
@@ -29,3 +28,27 @@ let maPromesse = function verifierConnexion(estConnecte) {
 maPromesse(false)
   .then((message) => console.log(message))
   .catch((erreur) => console.log(erreur));
+*/
+// Exercice 3
+
+function recupererUtilisateur(id) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({ id: id, nom: "Alice" });
+    }, 1000);
+  });
+}
+
+function recupererCommandes(Utilisateur) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(["Commande 01", "Commande 02"]);
+    }, 1000);
+  });
+}
+
+recupererUtilisateur(1).then((utilisateur) => {
+  recupererCommandes(utilisateur).then((commande) => {
+    console.log(`Commandes de ${utilisateur.nom} : ${commande}`);
+  });
+});
