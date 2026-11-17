@@ -50,7 +50,7 @@ recupererUtilisateur(1).then((utilisateur) => {
     console.log(`Commandes de ${utilisateur.nom} : ${commande}`);
   });
 });
-
+// Exercice 4
 async function afficherDetailsClient(id) {
   try {
     const utilisateur = await recupererUtilisateur(id);
