@@ -62,7 +62,6 @@ monFormulaire.addEventListener("submit", (e) => {
     ul.removeChild(li);
   });
 });
-*/
 
 class User {
   constructor(id, nom, email, role) {
@@ -110,4 +109,22 @@ monFormulaire.addEventListener("submit", (e) => {
   chiffre++;
   inputs.forEach((champ) => (champ.value = ""));
   gestionUtilisateurs.addUser(utilisateur);
+});
+*/
+
+// Exercice
+let formulaire = document.querySelector("form"),
+  prix = document.querySelector("#prix"),
+  quantite = document.querySelector("#quantite"),
+  checkbox = document.getElementById("taxCheck"),
+  monButton = document.querySelector("button"),
+  paragraphe = document.querySelector("#totalDisplay");
+
+function calculTotal(quantite, prixAchat) {
+  return quantite * prixAchat;
+}
+
+formulaire.addEventListener("submit", (e) => {
+  e.preventDefault();
+  paragraphe.textContent = calculTotal(quantite.value, prix.value);
 });
