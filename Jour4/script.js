@@ -28,13 +28,12 @@ let maPromesse = function verifierConnexion(estConnecte) {
 maPromesse(false)
   .then((message) => console.log(message))
   .catch((erreur) => console.log(erreur));
-*/
 // Exercice 3
 
 function recupererUtilisateur(id) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve({ id: id, nom: "Alice" });
+      id <= 0 ? reject("ID invalide") : resolve({ id: id, nom: "Alice" });
     }, 1000);
   });
 }
@@ -46,9 +45,21 @@ function recupererCommandes(Utilisateur) {
     }, 1000);
   });
 }
-
 recupererUtilisateur(1).then((utilisateur) => {
   recupererCommandes(utilisateur).then((commande) => {
     console.log(`Commandes de ${utilisateur.nom} : ${commande}`);
   });
 });
+
+async function afficherDetailsClient(id) {
+  try {
+    const utilisateur = await recupererUtilisateur(id);
+    const commandes = await recupererCommandes(utilisateur);
+    console.log(`Commandes de ${utilisateur.nom} : ${commandes}`);
+  } catch (erreur) {
+    console.error(erreur);
+  }
+}
+
+afficherDetailsClient(-2);
+*/
