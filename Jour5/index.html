@@ -6,5 +6,15 @@
     <title>Document</title>
     <script type="module" src="main.js" defer></script>
   </head>
-  <body></body>
+  <body id="body">
+    <script type="importmap">
+      {
+        "imports": {
+          "canvas": "./module/canvas.js",
+          "square": "./module/shapes/square.js",
+          "rectangle": "./module/shapes/rectangle.js"
+        }
+      }
+    </script>
+  </body>
 </html>

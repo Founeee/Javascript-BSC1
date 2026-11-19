@@ -1,7 +1,7 @@
 const name = "square";
 
 function draw(context, length, x, y, color) {
-  context.fillReact(x, y, length, length);
+  context.fillRect(x, y, length, length);
   context.fillStyle = color;
   return {
     length: length,
@@ -17,3 +17,5 @@ function reportArea(length, listId) {
   li.textContent = `La surface de mon carré est égal à ${length ** 2}`;
   liste.appendChild(li);
 }
+
+export { name, draw, reportArea };

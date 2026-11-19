@@ -1,8 +1,7 @@
 function create(id, parent, width, height) {
   const conteneurParent = document.getElementById(parent);
   const conteneur = document.createElement("div");
-  div.id = id;
-
+  conteneur.id = id;
   conteneurParent.appendChild(conteneur);
 
   const canvas = document.createElement("canvas");
@@ -10,7 +9,7 @@ function create(id, parent, width, height) {
   canvas.height = height;
   let ctx = canvas.getContext("2d");
 
-  parent.appendChild(canvas);
+  conteneur.appendChild(canvas);
   return { contexte: ctx, identifiant: id };
 }
 
@@ -22,3 +21,5 @@ function createReportList(wrapperId) {
   wrapper.appendChild(ul);
   return wId;
 }
+
+export { create, createReportList };
