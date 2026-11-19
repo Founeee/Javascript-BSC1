@@ -91,7 +91,24 @@ async function asynchrone() {
 let bouton = document.querySelector("button");
 let body = document.body;
 
-bouton.addEventListener("click", () => {
+bouton.addEventelementListener("click", () => {
   asynchrone();
 });
 */
+// Exercice API
+async function getUsers() {
+  let list = document.querySelector("#user-list");
+  try {
+    let data = await fetch("https://jsonplaceholder.typicode.com/users");
+    let response = await data.json();
+    response.forEach((utilisateurs) => {
+      let elementListe = document.createElement("li");
+      elementListe.textContent = `Nom: ${utilisateurs.name}, email (${utilisateurs.email}), adress : ${utilisateurs.address.city}`;
+      list.appendChild(elementListe);
+    });
+  } catch (erreur) {
+    console.error(erreur);
+  }
+}
+
+getUsers();
