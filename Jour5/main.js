@@ -1,7 +1,6 @@
 import * as Square from "square";
 import * as Canvas from "canvas";
 
-let body = document.getElementById("body");
 let canvas = Canvas.create("canvas", "body", 800, 600);
 
 import { getActifs, formater as formaterUser } from "./Exercice/users.js";
